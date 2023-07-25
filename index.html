@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div>
+  <h1>Age Calculator</h1>
+  <p>Just as the title says, it is a age calculator based on your birthyear.</p>
+  </div>
+ 
+  <div class="form">
+    <label for="name"> Enter your name: </label>
+    <input type="text" id="name" name="name" class="name">
+   <label for="year">Enter your birth year: </label>
+   <input type="number" id="year" minlength="4" maxlength="4" min="1900" max="2023" name="year" class="year">
+   <input type="submit" class="ageSubmit" style="width: 100px">
+  </div>
+  <div class="resultPara">
+    <p class="ageResult"> </p>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

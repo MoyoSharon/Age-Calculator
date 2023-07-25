@@ -1,0 +1,10 @@
+body {
+    font-size: 15pt;
+    display: grid;
+}
+.form {
+  display: grid;
+}
+input {
+  width: 200px;
+}
