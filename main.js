@@ -1,13 +1,22 @@
 console.log('Hello World!');
-const name = document.querySelector(".name");
-const year = document.querySelector(".year");
+const nameInput = document.querySelector(".name");
+const yearInput = document.querySelector(".year");
 const ageSubmit = document.querySelector(".ageSubmit");
 const ageResult = document.querySelector(".ageResult");
-const userYear = Number(year.value);
-const userName = Text(name.value);
-const d = new Date();
+
+
+const d = new Date(); 
+
 let resetButton;
 let age;
+
+
+function calcAge() {
+  const userYear = Number(yearInput.value);
+  const currentYear = d.getFullYear();
+  age = currentYear - userYear;
+  return age;
+}
 
 function backgroundChange() {
   if (age > 60 ) {
@@ -21,30 +30,30 @@ function backgroundChange() {
   }
 }
 
-function calcAge(currentYear, userYear) {
-  let currentYear = d.getFullYear();
-  let age = currentYear - userYear;
-  return age;
+ageSubmit.addEventListener('click', submitAge);
+
+
+function submitAge()  {
+  calcAge();
+  backgroundChange();
+  const userName = nameInput.value;
+  ageResult.textContent = `Hello ${userName}, you are ${age} years old now!`
+  
+   resetButton = document.createElement("button");
+  resetButton.innerHTML = "Reset";
+  document.body.appendChild(resetButton);
+  resetButton.style.display = "block";
+  resetButton.addEventListener('click', resetCalc);
 }
 
-ageSubmit.addEventListener('click', submitAge);
-resetButton.addEventListener('click', resetCalc);
 
 function resetCalc() {
   const resetParas = document.querySelectorAll('.resultPara');
   for (const resetPara of resetParas) {
     resetPara.textContent = "";
   }
-  resetButton.parentNode.removeChild(resetButton);
-}
-
-function submitAge()  {
-  calcAge();
-  backgroundChange();
-  
-  ageResult.textContent = "Hello ${userName}, you are ${age} years old now!"
-  
-   resetButton = document.createElement("button");
-  resetButton.innerHTML = "Reset"
-  body.appendChild(button);
+  nameInput.value = "";
+  yearInput.value = "";
+  document.body.style.backgroundColor = "";
+  resetButton.style.display = "none";
 }
